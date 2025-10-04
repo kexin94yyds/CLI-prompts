@@ -1,0 +1,18 @@
+# 本地提示词备份
+terminal-prompts.json.local.backup
+*.local.backup
+
+# 备份文件
+terminal-prompts.json.backup.*
+
+# Vim swap files
+*.swp
+*.swo
+
+# macOS
+.DS_Store
+
+# 个人配置
+.personal/
+my-personal-prompts.txt
+

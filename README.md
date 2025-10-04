@@ -1,6 +1,8 @@
 # CLI Prompts - Terminal Prompt Library
 
-CLI Prompts is a powerful terminal prompt management system designed to enhance productivity for developers and content creators. With a simple `//` shortcut, you can quickly access and manage 126 carefully crafted prompts.
+CLI Prompts is a powerful terminal prompt management system designed to enhance productivity for developers and content creators. With a simple `//` shortcut, you can quickly access and manage your own prompts.
+
+> **Note**: This repository includes 3 example prompts. You can easily import your own prompts using the provided tools.
 
 ## ✨ Core Features
 
@@ -17,11 +19,12 @@ CLI Prompts is a powerful terminal prompt management system designed to enhance 
 - **Crawler Mode**: Data collection and processing related prompts
 
 ### 🔧 Powerful Features
-- **Direct Search**: Cross-mode search across all 126 prompts
+- **Direct Search**: Cross-mode search across all prompts
 - **Mode Selection**: Browse prompts by specific categories
 - **Content Preview**: Real-time prompt content preview
 - **Clipboard Integration**: Auto-copy to clipboard with further editing support
 - **Command Line Insertion**: Direct insertion into terminal command line
+- **Easy Import**: Import your own prompts from text files
 
 ## 🚀 Quick Start
 
@@ -170,7 +173,9 @@ Thanks to all developers and users who have contributed to this project.
 
 # CLI Prompts - 终端提示词库
 
-CLI Prompts 是一个强大的终端提示词管理系统，专为提升开发者和内容创作者的工作效率而设计。通过简单的 `//` 快捷键，您可以快速访问和管理126个精心设计的提示词。
+CLI Prompts 是一个强大的终端提示词管理系统，专为提升开发者和内容创作者的工作效率而设计。通过简单的 `//` 快捷键，您可以快速访问和管理您自己的提示词。
+
+> **注意**: 本仓库包含3个示例提示词。您可以使用提供的工具轻松导入自己的提示词。
 
 ## ✨ 核心特性
 
@@ -187,11 +192,12 @@ CLI Prompts 是一个强大的终端提示词管理系统，专为提升开发�
 - **爬虫模式**: 数据采集和处理相关提示词
 
 ### 🔧 强大功能
-- **直接搜索**: 跨模式搜索所有126个提示词
+- **直接搜索**: 跨模式搜索所有提示词
 - **模式选择**: 按分类浏览特定模式的提示词
 - **内容预览**: 实时预览提示词内容
 - **剪贴板集成**: 自动复制到剪贴板，支持进一步编辑
 - **命令行插入**: 直接插入到终端命令行
+- **轻松导入**: 从文本文件导入您自己的提示词
 
 ## 🚀 快速开始
 
