@@ -1,3 +1,173 @@
+# CLI Prompts - Terminal Prompt Library
+
+CLI Prompts is a powerful terminal prompt management system designed to enhance productivity for developers and content creators. With a simple `//` shortcut, you can quickly access and manage 126 carefully crafted prompts.
+
+## ✨ Core Features
+
+### 🎯 Quick Access
+- **Double Slash Trigger**: Press `//` to quickly invoke the prompt selection interface
+- **Purple Highlight Theme**: Clean Codex-style interface design
+- **Smart Search**: Supports fuzzy search for quick prompt location
+
+### 📚 Multi-Mode Management
+- **Reading Mode**: Reading analysis related prompts
+- **Learning Mode**: Knowledge learning and summary related prompts
+- **Programming Mode**: Code development, debugging, optimization related prompts
+- **Problem Mode**: Problem analysis and solution related prompts
+- **Crawler Mode**: Data collection and processing related prompts
+
+### 🔧 Powerful Features
+- **Direct Search**: Cross-mode search across all 126 prompts
+- **Mode Selection**: Browse prompts by specific categories
+- **Content Preview**: Real-time prompt content preview
+- **Clipboard Integration**: Auto-copy to clipboard with further editing support
+- **Command Line Insertion**: Direct insertion into terminal command line
+
+## 🚀 Quick Start
+
+### Installation Steps
+
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/kexin94yyds/CLI-prompts.git
+   cd CLI-prompts
+   ```
+
+2. **Configure Environment**
+   ```bash
+   # Add script to ~/.zshrc
+   echo 'source ~/CLI-prompts/terminal-prompt.zsh' >> ~/.zshrc
+   
+   # Reload configuration
+   source ~/.zshrc
+   ```
+
+3. **Start Using**
+   - Press `//` in any terminal to invoke the prompt library
+   - Use arrow keys to select, Enter to confirm
+   - Supports direct search and mode selection
+
+## 📖 Usage Guide
+
+### Basic Operations
+- **Invoke Interface**: Press `//` or `Ctrl + /`
+- **Search Prompts**: Type keywords directly
+- **Select Mode**: Choose specific mode to browse prompts
+- **Insert Prompt**: Press Enter to insert into command line
+
+### Advanced Features
+- **Import Prompts**: Use `import-prompts.sh` script
+- **Reorder Prompts**: Use `reorder-prompts.sh` script
+- **Merge Modes**: Use `merge-modes.sh` script
+
+## 🛠️ Technical Architecture
+
+### Core Technologies
+- **Shell**: Zsh script implementation
+- **Interface**: fzf fuzzy finder
+- **Data**: JSON format storage
+- **Tools**: jq for JSON data processing
+
+### File Structure
+```
+CLI-prompts/
+├── terminal-prompt.zsh      # Core script
+├── terminal-prompts.json    # Prompt data
+├── *.sh                     # Utility scripts
+├── *.md                     # Documentation
+└── *-prompts.txt           # Mode-specific prompt files
+```
+
+## 📋 Prompt Categories
+
+### 📖 Reading Mode (25 prompts)
+- Summary, Elementary, Simple, Analogy, Science
+- Uncommon, Common, Invincible, Recommended Books, Prompts
+- Suggestions, Tips, Book Recommendations, Sources, Guidance
+- Objective, Principles, Assumption Validation, Assumption Applications
+- Framework, Repetition, Author, Insights, Follow-up
+
+### 🎓 Learning Mode (25 prompts)
+- Summary, Elementary, Simple, Analogy, Science
+- Uncommon, Common, Invincible, Recommended Books, Prompts
+- Suggestions, Tips, Book Recommendations, Sources, Guidance
+- Objective, Principles, Assumption Validation, Assumption Applications
+- Framework, Repetition, Author, Insights, Follow-up
+
+### 💻 Programming Mode (25 prompts)
+- Thinking, Test, Debug, Error, Persistence
+- Problem Recording, Scanning, Improvement, UI Prompts
+- Complexity, Prompts, Recording, Style, Public Account
+- Movie Style, Twitter, Helping Others, Author, Insights
+- Follow-up, Fact Checking, Detailed Explanation, Structuring
+
+### ❓ Problem Mode (25 prompts)
+- 5W1H, Nine Grid, First Principles, Text
+- Thinking, YouTube, Topics, Complexity, Prompts
+- Repetition, Recording, Style, Public Account, Movie Style
+- Twitter, Helping Others, Author, Insights, Follow-up
+- Fact Checking, Detailed Explanation, Structuring
+
+### 🕷️ Crawler Mode (26 prompts)
+- Thinking, YouTube, Topics, Complexity, Prompts
+- Repetition, Recording, Style, Public Account, Movie Style
+- Twitter, Helping Others, Author, Insights, Follow-up
+- Fact Checking, Detailed Explanation, Structuring, 5W1H
+- Nine Grid, First Principles, Text, Thinking
+
+## 🔄 Import/Export
+
+### Import Prompts
+```bash
+# Import using simple format
+./convert.sh my-prompts.txt
+
+# Import using complete format
+./import-prompts.sh prompts-import.txt
+
+# Merge multiple mode files
+./merge-modes.sh
+```
+
+### Export Prompts
+```bash
+# Generate reorderable file
+./reorder-prompts.sh
+```
+
+## 🎨 Interface Preview
+
+- **Purple Highlight**: Selected items display in purple text
+- **No Arrow Pointer**: Clean Codex-style design
+- **Real-time Preview**: Right panel shows prompt content preview
+- **Smart Search**: Supports fuzzy matching and keyword search
+
+## 📚 Documentation
+
+- [Quick Start Guide](QUICK_START.md)
+- [Import Tool Guide](IMPORT_GUIDE.md)
+- [Mode Management Guide](MODE_GUIDE.md)
+- [Test Guide](TEST_GUIDE.md)
+- [Final Usage Guide](FINAL_GUIDE.md)
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit issues and pull requests.
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🙏 Acknowledgments
+
+Thanks to all developers and users who have contributed to this project.
+
+---
+
+**Let CLI Prompts be your powerful assistant for productivity enhancement!** 🚀
+
+---
+
 # CLI Prompts - 终端提示词库
 
 CLI Prompts 是一个强大的终端提示词管理系统，专为提升开发者和内容创作者的工作效率而设计。通过简单的 `//` 快捷键，您可以快速访问和管理126个精心设计的提示词。
