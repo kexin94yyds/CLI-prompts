@@ -1,0 +1,14 @@
+# 带顺序的提示词文件示例
+# 格式：序号|名称|内容
+# 序号决定显示顺序，数字越小越靠前
+
+1|思路|我不是让你直接执行这个需求。请你先按照以下步骤进行：分析当前的实现逻辑，包括功能流程、涉及的关键模块或文件。基于我的[新需求]，说明如果要实现，需要对哪些部分做出修改。暂时不要改代码！只需要你说明改动思路。
+2|Test|先测试再提交
+3|Debug|Reflect on 5-7 different possible sources of the problem, distill those down to 1-2 most likely sources then add logs to validate your assumptions before we move onto implementing the actual code fix
+4|记录问题|很好。问题解决了。请帮我生成一个问题排除的文档，记录这次问题的原因和解决的办法以供将来遇到类似问题的时候参考。后续如果有典型问题解决了，也会用这个文档记录下来。
+5|出错|问题仍然没有解决。请你把有关< >的逻辑替我梳理一遍，然后对于关键环节和参数做一下调试，这样我们分析输出日志，找出问题所在。
+6|坚韧|在这个问题上我们已经修改多次，仍然没有效果，我怀疑是因为该部分的代码因为多次迭代导致了结构复杂，产生了不必要的嵌套，导致你的更新无法生效。我建议你完全删除这部分的逻辑，根据我们讨论的实际需求重新写代码，这样可以避免你的更新被原有逻辑影响
+7|扫描|Scan this project and show me all React components and their props.
+8|总结|Make an extensive summary of the article.
+9|小学|用小学学历的成年人能理解的方式来表达, 最好系统且全面的讲解关于
+10|简单|Please list comprehensive and structured about

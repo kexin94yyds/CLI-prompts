@@ -1,0 +1,20 @@
+# 爬虫模式提示词库
+# 格式：第一行名称，第二行内容，空行分隔
+
+油管
+使用以下模版生成 yt-dlp 命令，要求输出文件以频道 handle 命名，格式为 .txt，Zsh 终端可直接运行，不要加注释、不解释，只输出完整代码。模版代码：channel="@handle" name="${channel#@}" outfile="${name}.txt" echo "📥 输出文件：$outfile" yt-dlp --flat-playlist --no-check-certificate \ --print "%(upload_date>%Y-%m-%d)s\t%(title)s" \ --print "https://www.youtube.com/watch?v=%(id)s" \ "https://www.youtube.com/${channel}" \ > "$outfile" lines=$(wc -l < "$outfile") videos=$((lines / 2)) echo "✅ 完成：共 $videos 条视频 → $outfile" 博主链接：
+
+推特
+使用以下模版生成 Twitter 年份分类爬取脚本，要求按年份分类保存，格式为 博主名_年份.txt，Zsh 终端可直接运行，不要加注释、不解释，只输出完整一行命令。模版命令：cd ~/Desktop/爬推特 && cp NavalismHQ.zsh blogger.zsh && sed -i '' 's/@NavalismHQ/@BLOGGER_HANDLE/' blogger.zsh && sed -i '' 's/--limit 1000/--limit 1000/' blogger.zsh && ./blogger.zsh && echo "📂 开始年份分类..." && name="BLOGGER_NAME" && for year in 2025 2024 2023 2022 2021 2020 2019 2018; do grep "^$year" ${name}_test.txt > ${name}_${year}.txt 2>/dev/null; count=$(wc -l < ${name}_${year}.txt 2>/dev/null || echo "0"); if [ "$count" -gt 0 ]; then echo "✅ $year年: $count 条推文 → ${name}_${year}.txt"; else rm -f ${name}_${year}.txt; fi; done 博主链接：
+
+主题
+如下markdown格式输出给我: 标题名翻译成中文 链接(只需要提供:https://不需要写链接名) 例如这样: 1.爱、生活与目标 - Sadhguru做客《孟买人》 https://www.youtube.com/watch?v=z4GVfdsvgNM 不需要读取内容,只需要你从文本标题里面找尽可能多的同类主题,关于:
+
+扫描
+Scan this project and show me all React components and their props.
+
+复杂
+当你试图理解对你来说有点复杂的代码时，它会做很多事情，继续将该代码复制并粘贴到人工智能中，让它引导你完成它，让它解释你不理解的概念或你试图弄清楚的某些算法，将它们分解成更小的可消化部分，然后逐行进行解释它为你做的所有事情，这是让你学习如何理解代码、理解复杂函数和算法在做什么的好方法，但你还是要锻炼你解决问题的能力
+
+Linux
+作业 - 连接并验证（输入密码：Linux@123） ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no linux_7230264145@43.139.230.196 登录后执行： clear; echo "连接验证"; whoami; sudo whoami 常见报错一键处理 - 被公钥拒绝（Permission denied (publickey)） 已用强制密码参数，仍失败则重试上面命令并确认密码大小写正确。 - Host key 报错（Host key verification failed） ssh-keygen -R 43.139.230.196 && ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no linux_7230264145@43.139.230.196 - 端口不是 22（如自定义端口 2222） ssh -p 2222 -o PreferredAuthentications=password -o PubkeyAuthentication=no linux_7230264145@43.139.230.196 一次性加速（可选，做一次就行） - 建立别名后以后直接 ssh mylinux mkdir -p ~/.ssh && chmod 700 ~/.ssh && { echo "Host mylinux"; echo " HostName 43.139.230.196"; echo " User linux_7230264145"; echo " PreferredAuthentications password"; echo " PubkeyAuthentication no"; } >> ~/.ssh/config && chmod 600 ~/.ssh/config 以后连接： ssh mylinux

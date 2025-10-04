@@ -1,0 +1,9 @@
+# 我的提示词库
+# 格式：名称|内容 或 序号|名称|内容
+
+1|思路|我不是让你直接执行这个需求。请你先按照以下步骤进行：分析当前的实现逻辑，包括功能流程、涉及的关键模块或文件。基于我的[新需求]，说明如果要实现，需要对哪些部分做出修改。暂时不要改代码！只需要你说明改动思路。
+2|Test|先测试再提交
+3|Debug|Reflect on 5-7 different possible sources of the problem, distill those down to 1-2 most likely sources then add logs to validate your assumptions before we move onto implementing the actual code fix
+4|记录问题|很好。问题解决了。请帮我生成一个问题排除的文档，记录这次问题的原因和解决的办法以供将来遇到类似问题的时候参考。
+5|总结|Make an extensive summary of the article.
+6|小学|用小学学历的成年人能理解的方式来表达, 最好系统且全面的讲解关于
