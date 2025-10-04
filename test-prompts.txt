@@ -1,6 +1,0 @@
-# 测试提示词文件
-总结|Make an extensive summary of the article.
-小学|用小学学历的成年人能理解的方式来表达, 最好系统且全面的讲解关于
-简单|Please list comprehensive and structured about
-思路|我不是让你直接执行这个需求。请你先按照以下步骤进行：分析当前的实现逻辑，包括功能流程、涉及的关键模块或文件。基于我的[新需求]，说明如果要实现，需要对哪些部分做出修改。暂时不要改代码！只需要你说明改动思路。
-Test|先测试再提交
