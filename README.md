@@ -1,65 +1,167 @@
-# Slash Command Prompter
+# CLI Prompts - 终端提示词库
 
-The Slash Command Prompter is a browser extension designed to enhance productivity by allowing users to quickly insert predefined prompts into any text input field. It provides a user-friendly interface for managing and utilizing these prompts efficiently.
+CLI Prompts 是一个强大的终端提示词管理系统，专为提升开发者和内容创作者的工作效率而设计。通过简单的 `//` 快捷键，您可以快速访问和管理126个精心设计的提示词。
 
-## Key Features
+## ✨ 核心特性
 
-### 1. Prompt Management
-- **Add Prompts**: Users can create new prompts with a title and content
-- **Edit Prompts**: Existing prompts can be modified to update their content
-- **Delete Prompts**: Users can remove prompts that are no longer needed
-- **Search Functionality**: Quickly find prompts using a search bar
+### 🎯 快速访问
+- **双斜杠触发**: 按 `//` 快速呼出提示词选择界面
+- **紫色高亮主题**: 采用 Codex 风格的简洁界面设计
+- **智能搜索**: 支持模糊搜索，快速定位所需提示词
 
-### 2. Prompt Insertion
-- **Quick Access**: Prompts can be inserted into text fields with a simple click
-- **Pinning**: Frequently used prompts can be pinned for easier access
+### 📚 多模式管理
+- **看书模式**: 阅读分析相关提示词
+- **学习模式**: 知识学习和总结相关提示词  
+- **编程模式**: 代码开发、调试、优化相关提示词
+- **问题模式**: 问题分析和解决相关提示词
+- **爬虫模式**: 数据采集和处理相关提示词
 
-### 3. Import/Export
-- **Export Prompts**: Users can export all prompts to a text file for backup or sharing
-- **Import Prompts**: Prompts can be imported from a text file, allowing for easy setup across different devices
+### 🔧 强大功能
+- **直接搜索**: 跨模式搜索所有126个提示词
+- **模式选择**: 按分类浏览特定模式的提示词
+- **内容预览**: 实时预览提示词内容
+- **剪贴板集成**: 自动复制到剪贴板，支持进一步编辑
+- **命令行插入**: 直接插入到终端命令行
 
-### 4. Donation Feature
-- **Support Developer**: Users can support the developer by donating via WeChat or Alipay
-- **QR Code Integration**: A dedicated page with QR codes is available for donations
+## 🚀 快速开始
 
-### 5. User Interface
-- **Responsive Design**: The interface is designed to be intuitive and easy to navigate
-- **Customization**: Users can manage prompts and settings according to their preferences
+### 安装步骤
 
-## Technical Details
-- **Manifest Version**: 3
-- **Permissions**: Requires access to storage, active tabs, and scripting to function effectively
-- **Web Accessible Resources**: Includes HTML pages and images necessary for the donation feature
+1. **克隆仓库**
+   ```bash
+   git clone https://github.com/kexin94yyds/CLI-prompts.git
+   cd CLI-prompts
+   ```
 
-## Usage Scenarios
-- **Content Creation**: Quickly insert frequently used text snippets into documents or emails
-- **Customer Support**: Use predefined responses to streamline communication
-- **Coding**: Insert code snippets into development environments
+2. **配置环境**
+   ```bash
+   # 将脚本添加到 ~/.zshrc
+   echo 'source ~/CLI-prompts/terminal-prompt.zsh' >> ~/.zshrc
+   
+   # 重新加载配置
+   source ~/.zshrc
+   ```
 
-## Installation
-1. Download the extension from the browser's extension store
-2. Follow the installation prompts to add it to your browser
-3. Access the extension via the toolbar to start managing and using prompts
+3. **开始使用**
+   - 在任何终端中按 `//` 呼出提示词库
+   - 使用方向键选择，Enter 确认
+   - 支持直接搜索和模式选择
 
-## Development
-- Built with Chrome Extension Manifest V3
-- Developed using native JavaScript
-- Supports modern browsers
+## 📖 使用指南
 
-## Contributing
-Contributions are welcome! Please feel free to submit issues and pull requests.
+### 基本操作
+- **呼出界面**: 按 `//` 或 `Ctrl + /`
+- **搜索提示词**: 直接输入关键词
+- **选择模式**: 选择特定模式浏览提示词
+- **插入提示词**: 按 Enter 插入到命令行
 
-## 2.0 版本新增功能
+### 高级功能
+- **导入提示词**: 使用 `import-prompts.sh` 脚本
+- **重排序提示词**: 使用 `reorder-prompts.sh` 脚本
+- **合并模式**: 使用 `merge-modes.sh` 脚本
 
-### 多模式管理
-- 支持自定义多个"模式"，如：工作、学习、生活等。
-- 每个模式下可独立管理、分组不同的提示词。
-- 模式之间切换互不影响，方便分类和专注不同场景。
-- 支持模式的添加、编辑、删除、排序（上移）。
-- 导入/导出、批量管理均支持按模式分组。
+## 🛠️ 技术架构
 
-### 其他优化
-- 修复提示词上移仅在当前模式内有效的bug。
-- 优化斜杠菜单触发逻辑，避免误触发。
+### 核心技术
+- **Shell**: Zsh 脚本实现
+- **界面**: fzf 模糊搜索器
+- **数据**: JSON 格式存储
+- **工具**: jq 处理 JSON 数据
 
+### 文件结构
+```
+CLI-prompts/
+├── terminal-prompt.zsh      # 核心脚本
+├── terminal-prompts.json    # 提示词数据
+├── *.sh                     # 工具脚本
+├── *.md                     # 文档
+└── *-prompts.txt           # 各模式提示词文件
+```
 
+## 📋 提示词分类
+
+### 📖 看书模式 (25个提示词)
+- 总结、小学、简单、类比、科学
+- 不常、常见、无敌、推荐书、提示词
+- 建议、技巧、推书、来源、引导
+- 客观、原则、假设成立、假设观点正确
+- 框架、反复、作者、洞见、追问
+
+### 🎓 学习模式 (25个提示词)  
+- 总结、小学、简单、类比、科学
+- 不常、常见、无敌、推荐书、提示词
+- 建议、技巧、推书、来源、引导
+- 客观、原则、假设成立、假设观点正确
+- 框架、反复、作者、洞见、追问
+
+### 💻 编程模式 (25个提示词)
+- 思路、Test、Debug、出错、坚韧
+- 记录问题、扫描、改良、UI提示词
+- 复杂、prompts、记录、风格、公众号
+- 电影风格、推特、帮人、作者、洞见
+- 追问、事实核查、详解、结构化
+
+### ❓ 问题模式 (25个提示词)
+- 5W1H、九宫格、第一性原理、文字
+- 思路、油管、主题、复杂、prompts
+- 反复、记录、风格、公众号、电影风格
+- 推特、帮人、作者、洞见、追问
+- 事实核查、详解、结构化
+
+### 🕷️ 爬虫模式 (26个提示词)
+- 思路、油管、主题、复杂、prompts
+- 反复、记录、风格、公众号、电影风格
+- 推特、帮人、作者、洞见、追问
+- 事实核查、详解、结构化、5W1H
+- 九宫格、第一性原理、文字、思路
+
+## 🔄 导入导出
+
+### 导入提示词
+```bash
+# 使用简单格式导入
+./convert.sh my-prompts.txt
+
+# 使用完整格式导入
+./import-prompts.sh prompts-import.txt
+
+# 合并多个模式文件
+./merge-modes.sh
+```
+
+### 导出提示词
+```bash
+# 生成可重排序的文件
+./reorder-prompts.sh
+```
+
+## 🎨 界面预览
+
+- **紫色高亮**: 选中项显示为紫色文字
+- **无箭头指针**: 简洁的 Codex 风格设计
+- **实时预览**: 右侧显示提示词内容预览
+- **智能搜索**: 支持模糊匹配和关键词搜索
+
+## 📚 文档
+
+- [快速开始指南](QUICK_START.md)
+- [导入工具说明](IMPORT_GUIDE.md)
+- [模式管理指南](MODE_GUIDE.md)
+- [测试指南](TEST_GUIDE.md)
+- [最终使用指南](FINAL_GUIDE.md)
+
+## 🤝 贡献
+
+欢迎贡献代码和建议！请随时提交 Issue 和 Pull Request。
+
+## 📄 许可证
+
+本项目采用 MIT 许可证。
+
+## 🙏 致谢
+
+感谢所有为这个项目做出贡献的开发者和用户。
+
+---
+
+**让终端提示词库成为您提升效率的得力助手！** 🚀
