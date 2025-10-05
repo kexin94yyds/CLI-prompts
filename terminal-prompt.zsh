@@ -64,14 +64,15 @@ show_modes() {
     
     # 获取所有模式和提示词
     local modes=$(jq -r '.modes[] | "\(.id)|\(.name)"' "$TERMINAL_PROMPT_FILE" 2>/dev/null)
-    local all_prompts=$(jq -r '.prompts[] | "\(.name)|\(.modeId)"' "$TERMINAL_PROMPT_FILE" 2>/dev/null)
+    # 修改：同时包含名称和内容，用于搜索
+    local all_prompts=$(jq -r '.prompts[] | "\(.name)|\(.modeId)|\(.content)"' "$TERMINAL_PROMPT_FILE" 2>/dev/null)
     
     if [ -z "$modes" ]; then
         echo -e "${COLOR_YELLOW}没有找到模式${COLOR_RESET}"
         return 1
     fi
     
-    # 创建混合列表：模式 + 所有提示词
+    # 创建混合列表：模式 + 所有提示词（包含内容用于搜索）
     local mixed_list=""
       mixed_list+="$(echo "$modes" | sed 's/^/  /')\n"
       mixed_list+="\n提示词库:\n"
