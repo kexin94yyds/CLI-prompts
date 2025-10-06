@@ -117,6 +117,8 @@ show_modes() {
                 if [ -n "$content" ]; then
                     echo -n "$content" | pbcopy
                     LBUFFER="${LBUFFER}${content}"
+                    # 设置标记，表示刚刚使用了提示词
+                    export TERMINAL_PROMPT_JUST_USED=1
                 fi
             else
                 # 这是模式，进入模式选择
@@ -170,6 +172,8 @@ show_prompts_for_mode() {
             
             # 插入到命令行
             LBUFFER="${LBUFFER}${content}"
+            # 设置标记，表示刚刚使用了提示词
+            export TERMINAL_PROMPT_JUST_USED=1
         fi
     fi
 }
@@ -245,6 +249,8 @@ show_all_prompts() {
             
             # 插入到命令行
             LBUFFER="${LBUFFER}${content}"
+            # 设置标记，表示刚刚使用了提示词
+            export TERMINAL_PROMPT_JUST_USED=1
         fi
     fi
 }
@@ -287,6 +293,13 @@ show_help() {
   5. 可以继续编辑或添加内容
   6. 按 Esc 退出
 
+循环使用功能：
+  - 按 // 呼出提示词库，选择提示词，按 Enter 插入到命令行
+  - 编辑修改内容后，按 Enter 执行命令
+  - 命令执行完成后，再次按 Enter 键会自动重新打开提示词库
+  - 可以继续选择新的提示词，形成连续循环使用
+  - 无需重复输入 prompt 命令，实现真正的循环工作流程
+
 使用方式：
   选择模式 - 先选择模式（编程/学习/问题/看书/爬虫），再选择具体提示词
   直接搜索 - 输入关键词（如：思路、debug、总结）直接搜索所有126个提示词
@@ -317,14 +330,14 @@ alias prompts-help='show_help'
 
 # ZLE widget：呼出提示词库
 _show_prompts_widget() {
-    # 清除当前行显示
-    zle -R "加载提示词库..."
+    # 提示加载信息，不改变编辑状态
+    zle -M "加载提示词库..."
     
     # 调用提示词选择器
     show_prompts
     
-    # 刷新显示
-    zle reset-prompt
+    # 仅重绘当前提示，避免 reset 导致的状态切换
+    zle -R
 }
 
 # ZLE widget：智能斜杠 - 按两次 / 呼出提示词库
@@ -339,7 +352,7 @@ _smart_slash() {
     fi
 }
 
-# ZLE widget：按 Enter 时自动复制整行到剪贴板
+# ZLE widget：按 Enter 时自动复制整行到剪贴板，并支持循环打开提示词库
 _accept_line_with_copy() {
     # 获取当前命令行的完整内容
     local line="$BUFFER"
@@ -351,12 +364,27 @@ _accept_line_with_copy() {
     
     # 执行正常的 Enter 操作（接受当前行）
     zle accept-line
+    
+    # 如果刚刚使用了提示词，则标记在下一次进入编辑时自动弹出提示词库
+    if [ "$TERMINAL_PROMPT_JUST_USED" = "1" ]; then
+        unset TERMINAL_PROMPT_JUST_USED
+        export TERMINAL_PROMPT_OPEN_ON_READY=1
+    fi
+}
+
+# 在每次进入新行编辑时触发（避免 fzf 的回车被 ZLE 误吞导致立刻执行）
+_terminal_prompt_line_init() {
+    if [ "$TERMINAL_PROMPT_OPEN_ON_READY" = "1" ]; then
+        unset TERMINAL_PROMPT_OPEN_ON_READY
+        _show_prompts_widget
+    fi
 }
 
 # 注册 ZLE widgets
 zle -N _show_prompts_widget
 zle -N _smart_slash
 zle -N _accept_line_with_copy
+zle -N zle-line-init _terminal_prompt_line_init
 
 # 绑定快捷键
 # / 键 - 空行时呼出提示词库，否则正常输入斜杠（主要快捷键）
@@ -381,16 +409,3 @@ else
         echo -e "${COLOR_GREEN}提示词系统已加载${COLOR_RESET} ${COLOR_CYAN}按 // 呼出${COLOR_RESET}"
     fi
 fi
-
-        fzf --height 60% +m --select-1 \
-            --reverse \
-            --border rounded \
-            --prompt="搜索: " \
-            --header="选择模式 或 直接搜索提示词 | 输入搜索 ↑↓选择 Enter进入 Esc退出" \
-            --preview="echo ''; echo -e '\033[1;36m内容预览：\033[0m'; echo ''; if [[ {} == *'|'* ]]; then name=\$(echo {} | sed 's/^  //' | cut -d'|' -f1 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//'); mode_id=\$(echo {} | sed 's/^  //' | cut -d'|' -f2 | sed 's/^[[:space:]]*//;s/[[:space:]]*$//'); if [[ \$mode_id == reading || \$mode_id == learning || \$mode_id == programming || \$mode_id == problem || \$mode_id == crawler ]]; then cat /Users/apple/终端嵌入/Slash-Command-Prompter/terminal-prompts.json | jq -r --arg name \"\$name\" --arg mode_id \"\$mode_id\" '.prompts[] | select(.name == \$name and .modeId == \$mode_id) | .content' | fold -w 70 -s; else echo \"模式: \$name\"; fi; else echo \"选择模式\"; fi" \
-            --preview-window=right:50%:wrap \
-            --color='fg:#d0d0d0,bg:#1e1e1e,hl:#a855f7' \
-            --color='fg+:#c084fc,bg+:#2d1b4e,hl+:#c084fc' \
-            --color='info:#afaf87,prompt:#a855f7,pointer:#a855f7' \
-            --color='marker:#ff5f87,spinner:#ff5f87,header:#87afaf' \
-            --marker='*')
